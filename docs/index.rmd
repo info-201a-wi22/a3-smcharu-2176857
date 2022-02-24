@@ -1,0 +1,31 @@
+---
+title: "index.rmd"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## **Time Chart**
+```{r, include = FALSE}
+source("../source/time_chart_1.R")
+```
+
+```{r, echo = FALSE}
+plot(chart_1)
+```
+
+```{r, echo = FALSE}
+plot(chart_2       )
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
