@@ -19,20 +19,6 @@ ggplot(county_shape) +
   ) +
   coord_map() 
 
-# DATA WRANGLING
-# Filtering out df for year 2018, fips, county, state, 
-black_jail_pop_2018 <- incarceration_df %>% 
-  filter(year == 2018) %>% 
-  group_by(fips) %>% 
-  select(fips, black_jail_pop, total_jail_pop) %>% 
-  summarize(percent_black_jail_pop 
-         = (black_jail_pop * 100 ) / total_jail_pop) %>% 
-  filter(percent_black_jail_pop <= 100)
-
-#combining black_jail_pop_2018 data frame and county_shape data frame
-combined_df <- left_join(county_shape, black_jail_pop_2018,
-                         by = "fips") 
-
 # Define a minimalist theme for maps
 blank_theme <- theme_bw() +
   theme(
@@ -45,6 +31,20 @@ blank_theme <- theme_bw() +
     panel.grid.minor = element_blank(), # remove minor grid lines
     panel.border = element_blank()      # remove border around plot
   )
+
+# DATA WRANGLING
+# Filtering out df for year 2018, fips, county, state, 
+black_jail_pop_2018 <- incarceration_df %>% 
+  filter(year == 2018) %>% 
+  group_by(fips) %>% 
+  select(fips, black_jail_pop, total_jail_pop) %>% 
+  summarize(percent_black_jail_pop 
+         = (black_jail_pop * 100 ) / total_jail_pop) %>% 
+  filter(percent_black_jail_pop <= 100)
+
+# Combining black_jail_pop_2018 data frame and county_shape data frame
+combined_df <- left_join(county_shape, black_jail_pop_2018,
+                         by = "fips") 
     
 # Drawing the Map
 map <- ggplot(combined_df) +

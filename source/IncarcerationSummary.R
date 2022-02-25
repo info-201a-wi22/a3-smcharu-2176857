@@ -5,9 +5,6 @@ library(dplyr)
 library(tidyr)
 library(stringr)
 
-df <- incarceration_df %>% 
-  filter(year == 1990)
-
 #State with highest Black population between the ages of 15 and 64 in 1970
 state_highest_black_1990 <- incarceration_df %>% 
   group_by(state) %>% 
