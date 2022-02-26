@@ -7,7 +7,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r, include = FALSE}
+```{r source, include = FALSE}
 source("../source/analysis.R")
 
 #library("knitr")
@@ -17,21 +17,21 @@ source("../source/analysis.R")
 This is a report of the Incarceration Rates throughout the United States, with two graphs focusing on Georgia and one focusing on the United States. This data is collected by the Vera Institute. Prior to creating the graphs, some data analysis was done to have a basis understanding of the data set that we would be researching and looking into. The state with the highest black jail population in 1970 in the United States is `r state_highest_black_1990`. The state with the highest black jail population in 2018 in the United States is `r state_highest_black_2018`. The state with the lowest black jail population in 2018 is `r state_lowest_2018`. The state with the highest black jail population is Georgia so I wanted to find out what the population was. The black jail population in Georgia is `r highest_state_black`. Comparatively to this number, the white jail population in Georgia is `r highest_state_white`. This summary information made me curious about Georgia and wanted to visualize and better understand the numbers over the years. 
 
 ## **Time Trend Chart**
-```{r, echo = FALSE}
+```{r chart_1, echo = FALSE}
 plot(chart_1)
 ```
 
 This line chart expresses the change over time regarding the total number of black people and total number of white poeple in Georgia over time. The light blue represents the white jail population and the light red represents the black jail population. I chose to show this data through a trend line to show the change over time of black and white jail population with also having the overall, total population of Georgia in mind. As you can see the black population in jail has consistenly been higher than the white population in jail though the census shows that overall, throughout the state there are more white people than black people. As of 2018, there were 6.128 million white people and 3.32 million black people. With this in mind, with this trend line you can see that proportionally, there are lot more black people in jail than white people.
 
 ## **Variable Comparison Chart**
-```{r, echo = FALSE}
+```{r chart_2, echo = FALSE}
 plot(chart_2)
 ```
 
 This scatter plot compares the total population and the DCRP which is a voluntary data collection of the persons dying in state prisons, local jails, and in the process of arrest collected by the Bureau of Justice Statistics. This scatter plot shows the relation between continous values. The x axis holds the total jail population and the y axis holds values of female and male jail population and female and male dcrp count. On this graph it can be seen that there are considerbly more males in jail than females. The very last value is from 2013 and it shows that there are 41340 males in jail and 5663 females in jail. The male dcrp is 36409 and the female dcrp is 5155. Proportionally, this shows that more females die in state prisons, local jails or in the process of arrest compared to males. 
 
 ## **Map**
-```{r, echo = FALSE}
+```{r map, echo = FALSE}
 plot(map)
 ```
 
